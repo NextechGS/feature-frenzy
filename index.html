@@ -268,31 +268,34 @@ var raster = new ol.source.Raster({
 
         <section>
           <!-- Andreas -->
-          <h2>API refinements</h2>
-          <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
+          <h2>API refinements (I)</h2>
+        <div class="fragment fade-in">
+          <p>Simpler vector sources (3.5)</p>
+          <p>Removal of two way binding (3.5)</p>
+          <p>Removal of feature overlay (3.7)</p>
+        </div>
+          <!--
+            Simpler vector sources means: only one vector source, easy configure
+            with url and format or with a custom loader. No need to provide the
+            view projection any more.
+          -->
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>API refinements (II)</h2>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
+var source = new ol.source.GeoJSON({
+  url: 'data/vectors.geojson',
+  projection: 'EPSG:3857' // Why not EPSG:4326?
+});
+          </code></pre>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
 var source = new ol.source.Vector({
   format: new ol.format.GeoJSON(),
-  url: function(extent, resolution, projection) {
-    return createUrl(extent, projection);
-  },
-  strategy: ol.loadingstrategy.tile(ol.tilegrid.createXYZ())
+  url: 'data/vectors.geojson'
 });
-          </code></pre></small>
-          <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
-var source = new ol.source.ServerVector({
-  format: new ol.format.GeoJSON(),
-  loader: function(extent, resolution, projection) {
-    url = createUrl(extent, projection);
-    $.ajax(url).then(function(data) {
-      source.addFeatures(source.readFeatures(data, {featureProjection: proj}));
-    });
-  },
-  strategy: ol.loadingstrategy.createTile(new ol.tilegrid.XYZ())
-});
-        </code></pre></small>
-        <div class="fragment fade-in">
-          <p>Simpler vector sources (3.5), removal of two way binding (3.5), removal of feature overlay (3.7)</p>
-        </div>
+        </code></pre>
           <!--
             Simpler vector sources means: only one vector source, easy configure
             with url and format or with a custom loader. No need to provide the
