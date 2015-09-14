@@ -101,6 +101,34 @@ alert(foo);
             [PRESENTER NOTES]
           -->
         </section>
+        <section>
+          <!-- Andreas -->
+          <h2>Vector formats</h2>
+          <ul>
+            <li class="fragment fade-in">KML, GeoJSON, TopoJSON, WKT, GPX<br>
+              GML 2 &amp; 3, WFS 1.1, OSMXML, ICG, Polyline<br>
+              <b>New</b>: EsriJSON (3.5)</li>
+            <li class="fragment fade-in">Transform while parsing</li>
+          </ul>
+          <br><br>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
+new ol.source.Vector({
+  format: new ol.format.GeoJSON(),
+  url: 'http://example.net/my.geojson'
+});
+          </code></pre>
+
+          <!--
+            Popular formats like KML or GeoJSON
+            Less frequently used formats like GML or OSMXML
+            New EsriJSON format
+
+            Features are transformed to the view projection while parsing
+
+            Either create source with url, or define a loader using tile or bbox
+            strategies.
+          -->
+        </section>
         <section data-background="#FDCC32">
           <h1>Thanks!</h1>
           <br>
