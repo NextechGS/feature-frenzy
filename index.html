@@ -186,6 +186,54 @@ new ol.source.Vector({
         </section>
 
         <section>
+          <!-- Tim -->
+          <h2>Styled Features (I)</h2>
+          <pre><code class="javascript" data-trim>
+layer.setStyle(new ol.style.Style({
+  fill: new ol.style.Fill({
+    color: 'rgba(255, 255, 255, 0.3)'
+  }),
+  stroke: new ol.style.Stroke({
+    color: '#319FD3'
+  })
+}));
+          </code></pre>
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>Styled Features (II)</h2>
+          <pre><code class="javascript" data-trim>
+layer.setStyle(function(feature, resolution) {
+  return [
+    new ol.style.({
+      image: new ol.style.Icon({
+        src: 'http://example.com/icon.png',
+        scale: feature.get('magnitude') / 2
+      })
+    })
+  ];
+});
+          </code></pre>
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>Styled Features (III)</h2>
+          <pre><code class="javascript" data-trim>
+layer.setStyle(new ol.style.Style({
+  image: new ol.style.Circle({
+    radius: 5,
+    fill: new ol.style.Fill({color: 'orange'})
+  }),
+  geometry: function(feature) {
+    var coordinates = feature.getGeometry()
+        .getCoordinates()[0];
+    return new ol.geom.MultiPoint(coordinates);
+  }
+});
+          </code></pre>
+        </section>
+
+        <section>
           <!-- Andreas -->
           <h2>API refinements</h2>
           <ul>
