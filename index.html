@@ -159,9 +159,21 @@ new ol.source.Vector({
           <!-- Andreas -->
           <h2>API refinements</h2>
           <ul>
-            <li>Simpler vector sources (3.5)</li>
             <li>Removal of two way binding (3.5)</li>
             <li>Removal of feature overlay (3.7)</li>
+          </ul>
+          <!--
+            Two-way binding removed because we have change events.
+            Removal of feature overlay to make working with vector layers more
+            straightforward.
+          -->
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>API refinements</h2>
+          <ul>
+            <li>Simpler vector sources (3.5)</li>
           </ul>
           <br>
           <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
@@ -191,9 +203,6 @@ var source = new ol.source.ServerVector({
             Simpler vector sources means: only one vector source, easy configure
             with url and format or with a custom loader. No need to provide the
             view projection any more.
-            Two-way binding removed because we have change events.
-            Removal of feature overlay to make working with vector layers more
-            straightforward.
           -->
         </section>
 
