@@ -23,3 +23,67 @@ While this task is running, the slideshow is available at http://localhost:4000/
 To publish the slides (with dependencies) to the `gh-pages` branch on GitHub, run the following:
 
     npm run deploy
+
+# Things to show:
+
+Tim
+
+ * tile handling / raster source support
+  * XYZ, OSM, Bing, ArcGIS Rest (3.3), TileJSON, etc.
+  * tile load events (3.3)
+  * world wrapping (3.4)
+  * non-square tiles (3.5)
+
+Eric
+
+ * controls & interactions (rotation)
+
+Andreas
+
+ * vector format support
+  * KML, GeoJSON, TopoJSON, WKT, GPX, EsriJSON (3.5)
+  * transform while parsing
+
+ * vector rendering
+  * geometry simplification
+  * replay (maintain stroke, symbol size, and fonts)
+  * world wrapped rendering (3.5)
+
+Eric
+
+ * feature interaction
+   * UTFGrid (3.1)
+   * forEachLayerAtPixel
+   * forEachFeatureAtPixel
+
+Tim
+
+ * custom rendering
+  * geometry function (3.1)
+  * immediate rendering
+  * pre/postcompose context manipulation
+  * raster operations
+
+Eric
+
+ * feature editing
+   * draw point, line, polygon, circle (3.4), regular polygon (3.6)
+   * modify, translate (3.9)
+   * maintain topology
+   * snapping (3.5)
+
+Andreas
+
+ * API refinements
+   * simpler vector sources (3.5)
+   * removal of two way binding (3.5)
+   * removal of feature overlay (3.7)
+
+ * upcoming
+  * raster reprojection
+  * vector tiles
+
+Tim
+
+ * custom builds
+ * conclusion
