@@ -47,6 +47,9 @@
       .smaller {
         font-size: smaller !important;
       }
+      .reveal p {
+        margin: 1em;
+      }
     </style>
   </head>
   <body>
@@ -63,7 +66,9 @@
           <h3>eric.lemoine@camptocamp.com</h3>
         </section>
         <section>
-          <img src="img/ol-logo.png">
+          <p>
+            <img height=833 src="img/ol-logo.png">
+          </p>
         </section>
         <section>
           <!-- [PRESENTER NAME] -->
@@ -97,6 +102,31 @@ alert(foo);
               [LINK TO EXAMPLE]
             </a>
           </p>
+          <!--
+            [PRESENTER NOTES]
+          -->
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>Tile Sources</h2>
+          <pre><code class="javascript" data-trim>
+var map = new ol.Map({layers: [
+  new ol.layer.Tile({
+    source: new ol.source.OSM()
+  })
+]});
+          </code></pre>
+          <div class="fragment fade-in">
+            <p>
+              Render tiles using XYZ, TileJSON, WMTS, MapQuest, Bing Maps, ArcGIS (new in 3.3), and more.
+            </p>
+            <p>
+              Support for non-square tiles (3.5).  Monitor tile load events (3.3).  Use a prioritized tile queue, configure tile loading priority.
+            </p>
+            <p>
+              <a class="squinty" href="./examples/tiles-galore.html">tiles galore</a>
+            </p>
+          </div>
           <!--
             [PRESENTER NOTES]
           -->
