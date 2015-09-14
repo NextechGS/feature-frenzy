@@ -155,6 +155,48 @@ new ol.source.Vector({
           -->
         </section>
 
+        <section>
+          <!-- Andreas -->
+          <h2>API refinements</h2>
+          <ul>
+            <li>Simpler vector sources (3.5)</li>
+            <li>Removal of two way binding (3.5)</li>
+            <li>Removal of feature overlay (3.7)</li>
+          </ul>
+          <br>
+          <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
+var source = new ol.source.Vector({
+  format: new ol.format.GeoJSON(),
+  url: function(extent, resolution, proj) {
+    return 'featureservice/water.json?bbox=' +
+        ol.proj.transformExtent(extent, proj, 'EPSG:4326').join(',');
+  },
+  strategy: ol.loadingstrategy.tile(ol.tilegrid.createXYZ())
+});
+          </code></pre></small>
+          <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
+var source = new ol.source.ServerVector({
+  format: new ol.format.GeoJSON(),
+  loader: function(extent, resolution, proj) {
+    var url = 'featureservice/water.json?bbox=' +
+        ol.proj.transformExtent(extent, proj, 'EPSG:4326').join(',');
+    $.ajax(url).then(function(data) {
+      source.addFeatures(source.readFeatures(data, {featureProjection: proj}));
+    });
+  },
+  strategy: ol.loadingstrategy.createTile(new ol.tilegrid.XYZ())
+});
+</code></pre></small>
+          <!--
+            Simpler vector sources means: only one vector source, easy configure
+            with url and format or with a custom loader. No need to provide the
+            view projection any more.
+            Two-way binding removed because we have change events.
+            Removal of feature overlay to make working with vector layers more
+            straightforward.
+          -->
+        </section>
+
         <section data-background="#FDCC32">
           <h1>Thanks!</h1>
           <br>
