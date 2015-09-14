@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Working with OpenLayers 3</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="theme/show.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+      .reveal h1.beefy {
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 10px 10px 6px rgba(0, 0, 0, 0.2);
+      }
+      .reveal ul.plain {
+        list-style-type: none;
+      }
+      .reveal h2 > img {
+        vertical-align: sub;
+      }
+      .reveal pre {
+        font-size: 0.85em;
+      }
+      .reveal section img.boundless {
+        margin-bottom: -4em;
+        width: 30%;
+      }
+      .reveal section img.inline-icon {
+        margin: 0 0 -10px 0;
+        vertical-align: text-bottom;
+      }
+      .reveal a.squinty {
+        font-size: 80%;
+      }
+      .smaller {
+        font-size: smaller !important;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="#FDCC32">
+          <h1 class="beefy">OpenLayers</h1>
+          <h3>Feature Frenzy</h3>
+        </section>
+        <section>
+          <h3>tim@planet.com</h3>
+          <h3>ahocevar@boundlessgeo.com</h3>
+          <h3>elemoine@camptocamp.com</h3>
+        </section>
+        <section>
+          <img src="img/ol-logo.png">
+        </section>
+        <section>
+          <!-- [PRESENTER NAME] -->
+          <h2>[SLIDE TITLE]</h2>
+          <pre><code class="javascript" data-trim>
+// code block
+var foo = 'bar';
+          </code></pre>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
+// a second code block
+alert(foo);
+          </code></pre>
+          <a href="./examples/example.html">
+            [LINK TO EXAMPLE]
+          </a>
+          <!--
+            [PRESENTER NOTES]
+          -->
+        </section>
+        <section data-background="#FDCC32">
+          <h1>Thanks!</h1>
+          <br>
+          <p>
+            <a href="http://openlayers.org/">
+              http://openlayers.org/
+            </a>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <!-- reveal.js loading and configuration -->
+    <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        rollingLinks: false,
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [{
+          src: 'bower_components/reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        }, {
+          src: 'bower_components/reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        }]
+      });
+
+    </script>
+  </body>
+</html>
