@@ -232,6 +232,42 @@ layer.setStyle(new ol.style.Style({
 });
           </code></pre>
         </section>
+        <section>
+          <!-- Tim -->
+          <h2>but wait, there's more!</h2>
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>Immediate Rendering</h2>
+          <pre><code class="javascript" data-trim>
+map.on('postcompose', function(event) {
+  var context = event.vectorContext;
+  context.setImageStyle(imageStyle);
+  context.drawPointGeometry(point);
+});
+          </code></pre>
+          <p>
+            <a class="squinty" href="./examples/bike-track.html">bike track</a>
+          </p>
+        </section>
+
+        <section>
+          <!-- Tim -->
+          <h2>Raster Operations</h2>
+          <pre><code class="javascript" data-trim>
+var raster = new ol.source.Raster({
+  sources: [imagery, landcover],
+  operation: function(pixels, data) {
+    // here you can run operations
+    // on the input pixels and
+    // return new pixel values
+  }
+});
+          </code></pre>
+          <p>
+            <a class="squinty" href="./examples/flood-fill.html">flood fill</a>
+          </p>
+        </section>
 
         <section>
           <!-- Andreas -->
