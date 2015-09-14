@@ -1,0 +1,34 @@
+extends _layouts/master
+
+block context
+  - var title = 'Interactions and Controls';
+
+block styles
+  style.
+    .ol-scale-line-inner {
+      font-size: 12px;
+    }
+    #locate {
+      position: absolute;
+      top: 46px;
+      right: 8px;
+      font-size: 14px;
+    }
+    #marker {
+      display: block;
+      position: absolute;
+      top: 73px;
+      right: 8px;
+    }
+    #marker:hover {
+      cursor: pointer;
+    }
+
+block extra
+  button(id="locate")
+    | locate
+  img(id="marker", src="data/marker.png")
+
+block scripts
+  script(src="../bower_components/angular/angular.min.js")
+  script(src='interaction-control.js')
