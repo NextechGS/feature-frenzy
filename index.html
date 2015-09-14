@@ -134,19 +134,17 @@ var map = new ol.Map({layers: [
         <section>
           <!-- Andreas -->
           <h2>Vector formats</h2>
-          <ul>
-            <li class="fragment fade-in">KML, GeoJSON, TopoJSON, WKT, GPX<br>
-              GML 2 &amp; 3, WFS 1.1, OSMXML, ICG, Polyline<br>
-              <b>New</b>: EsriJSON (3.5)</li>
-            <li class="fragment fade-in">Transform while parsing</li>
-          </ul>
-          <br><br>
           <pre class="fragment fade-in"><code class="javascript" data-trim>
 new ol.source.Vector({
   format: new ol.format.GeoJSON(),
   url: 'http://example.net/my.geojson'
 });
           </code></pre>
+          <div class="fragment fade-in">
+            <p>KML, GeoJSON, TopoJSON, WKT, GPX, GML&nbsp;2&nbsp;&amp;&nbsp;3, WFS&nbsp;1.1, OSMXML, ICG, Polyline,
+              EsriJSON (new in 3.5)</p>
+            <p>Transform while parsing</p>
+          </div>
 
           <!--
             Popular formats like KML or GeoJSON
@@ -163,17 +161,16 @@ new ol.source.Vector({
         <section>
           <!-- Andreas -->
           <h2>Vector rendering</h2>
-          <ul>
-            <li>Geometry simplification</li>
-            <li>Replay (maintain stroke, symbol size, and fonts)</li>
-            <li><b>New:</b> world wrapped rendering (3.5)</li>
-          </ul>
-          <br><br>
-          <p>
-            <a href="./examples/vector-rendering.html">
-              Vector rendering example
-            </a>
-          </p>
+          <div class="fragment fade-in">
+            <p>Geometry simplification</p>
+            <p>Replay (maintain stroke, symbol size, and fonts)</p>
+            <p>World wrapped rendering (new in 3.5)</p>
+            <p>
+              <a class="squinty" href="./examples/vector-rendering.html">
+                vector rendering
+              </a>
+            </p>
+        </div>
 
           <!--
             Performance is achieved by simplifying geometries to pixel
@@ -272,30 +269,11 @@ var raster = new ol.source.Raster({
         <section>
           <!-- Andreas -->
           <h2>API refinements</h2>
-          <ul>
-            <li>Removal of two way binding (3.5)</li>
-            <li>Removal of feature overlay (3.7)</li>
-          </ul>
-          <!--
-            Two-way binding removed because we have change events.
-            Removal of feature overlay to make working with vector layers more
-            straightforward.
-          -->
-        </section>
-
-        <section>
-          <!-- Andreas -->
-          <h2>API refinements</h2>
-          <ul>
-            <li>Simpler vector sources (3.5)</li>
-          </ul>
-          <br>
           <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
 var source = new ol.source.Vector({
   format: new ol.format.GeoJSON(),
-  url: function(extent, resolution, proj) {
-    return 'featureservice/water.json?bbox=' +
-        ol.proj.transformExtent(extent, proj, 'EPSG:4326').join(',');
+  url: function(extent, resolution, projection) {
+    return createUrl(extent, projection);
   },
   strategy: ol.loadingstrategy.tile(ol.tilegrid.createXYZ())
 });
@@ -303,16 +281,18 @@ var source = new ol.source.Vector({
           <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
 var source = new ol.source.ServerVector({
   format: new ol.format.GeoJSON(),
-  loader: function(extent, resolution, proj) {
-    var url = 'featureservice/water.json?bbox=' +
-        ol.proj.transformExtent(extent, proj, 'EPSG:4326').join(',');
+  loader: function(extent, resolution, projection) {
+    url = createUrl(extent, projection);
     $.ajax(url).then(function(data) {
       source.addFeatures(source.readFeatures(data, {featureProjection: proj}));
     });
   },
   strategy: ol.loadingstrategy.createTile(new ol.tilegrid.XYZ())
 });
-</code></pre></small>
+        </code></pre></small>
+        <div class="fragment fade-in">
+          <p>Simpler vector sources (3.5), removal of two way binding (3.5), removal of feature overlay (3.7)</p>
+        </div>
           <!--
             Simpler vector sources means: only one vector source, easy configure
             with url and format or with a custom loader. No need to provide the
@@ -328,25 +308,25 @@ var source = new ol.source.ServerVector({
         <section>
           <!-- Andreas -->
           <h2>Raster reprojection</h2>
-          <ul>
-            <li>Effort funded by a Boundless client</li>
-            <li>Implemented by KlokanTech</li>
-          </ul>
-          <br>
-          <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
+          <pre class="fragment fade-in" ><code class="javascript" data-trim>
 var newProj = 'EPSG:4326';
 var oldProj = map.getView.getProjection();
+var center = map.getView().getCenter();
 map.setView({
   projection: newProj,
-  center: ol.proj.transform(map.getView().getCenter(), oldProj, newProj),
+  center: ol.proj.transform(
+      center, oldProj, newProj),
   zoom: map.getView().getZoom()
 });
-</code></pre></small>
-          <p class="fragment fade-in">
-            <a href="./examples/raster-reprojection.html">
-              Raster reprojection example
+        </code></pre>
+        <div class="fragment fade-in">
+          <p>Effort funded by a Boundless client, implemented by KlokanTech</p>
+          <p>
+            <a class="squinty" href="./examples/raster-reprojection.html">
+              raster reprojection
             </a>
           </p>
+        </div>
           <!--
             Source in any known projection
             View in a different projection
@@ -357,29 +337,27 @@ map.setView({
         <section>
           <!-- Andreas -->
           <h2>Vector tiles</h2>
-          <ul>
-            <li>Effort funded by Boundless clients</li>
-            <li>Implemented by Boundless</li>
-          </ul>
-          <br>
-          <small class="fragment fade-in" style="width: 45em;"><pre><code class="javascript" data-trim>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
+var url = 'tileservice/{z}/{x}/{y}.pbf';
 var layer = new ol.layer.VectorTile({
   source: new ol.source.VectorTile({
     format: new ol.format.MVT(),
     tileGrid: ol.tilegrid.createXYZ(),
     tilePixelRatio: 16,
     tileUrlFunction: function(tileCoord) {
-      return 'tileservice/' + tileCoord[0] + '/' + tileCoord[1] + '/' +
-          (-tileCoord[2] - 1) + '.pbf';
+      return xyz(url, tileCoord);
     }
   })
 });
-</code></pre></small>
-          <p class="fragment fade-in">
-            <a href="./examples/vector-tiles.html">
-              Vector tiles example
-            </a>
-          </p>
+          </code></pre>
+          <div class="fragment fade-in">
+            <p>Effort funded by Boundless clients</p>
+            <p>
+              <a class="squinty" href="./examples/vector-tiles.html">
+                vector tiles
+              </a>
+            </p>
+          </div>
           <!--
             Introduces a new vector tile renderer and a
             Mapbox Vector Tile format parser. Can also render tiles in any
