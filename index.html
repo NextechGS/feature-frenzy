@@ -129,6 +129,32 @@ new ol.source.Vector({
             strategies.
           -->
         </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>Vector rendering</h2>
+          <ul>
+            <li>Geometry simplification</li>
+            <li>Replay (maintain stroke, symbol size, and fonts)</li>
+            <li><b>New:</b> world wrapped rendering (3.5)</li>
+          </ul>
+          <br><br>
+          <p>
+            <a href="./examples/vector-rendering.html">
+              Vector rendering example
+            </a>
+          </p>
+
+          <!--
+            Performance is achieved by simplifying geometries to pixel
+            resolutions. For polygons, the topology is preserved. Feature
+            geometries are translated into a replay structure, for efficient
+            re-rendering during animations and user interaction.
+
+            Vector rendering now also supports world wrapping.
+          -->
+        </section>
+
         <section data-background="#FDCC32">
           <h1>Thanks!</h1>
           <br>
