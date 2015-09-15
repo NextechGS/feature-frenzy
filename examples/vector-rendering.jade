@@ -1,0 +1,31 @@
+extends _layouts/master
+
+block context
+  - var title = 'Vector rendering'
+
+block styles
+  link(rel="stylesheet", href="../bower_components/bootstrap/docs/assets/css/bootstrap.css", type="text/css")
+  style.
+    #infocontainer {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      white-space: nowrap;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 2px solid #AAA;
+      border-radius: 5px;
+    }
+
+block extra
+  div#infocontainer
+    h4 Countries Layer Statitics
+    hr
+    div#info
+
+
+block ol
+  script(src='ol-debug.js')
+
+block scripts
+  script(src='vector-rendering.js')
