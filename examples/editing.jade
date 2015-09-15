@@ -1,0 +1,30 @@
+extends _layouts/master
+
+block context
+  - var title = 'Draw and Editing Tools';
+
+block styles
+  style.
+    #draw {
+      position: absolute;
+      top: 10px;
+      right: 45px;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    #edit {
+      position: absolute;
+      top: 10px;
+    }
+
+block extra
+  select(id="draw")
+    option(value="select") Select to draw…
+    option(value="point") Point
+    option(value="line") Line
+    option(value="polygon") Polygon
+    option(value="circle") Circle
+    option(value="rectangle") Rectangle
+
+block scripts
+  script(src='editing.js')
