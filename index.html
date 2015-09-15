@@ -219,9 +219,9 @@ new ol.source.Vector({
           <h2>Feature Interaction</h2>
           <p>« Pixel-based Object Detection »</p>
           <ul>
-              <li>UTFGrid support</li>
-              <li>Feature Hit Detection (<code>forEachFeatureAtPixel</code>)</li>
-              <li>Color Detection (<code>forEachLayerAtPixel</code>)</li>
+              <li>Feature Hit Detection</code>)</li>
+              <li>UTFGrid support (new in 3.1)</li>
+              <li>Color Detection on raster and vector layers (new in 3.2)</li>
           </ul>
           <p>
             <a class="squinty" href="examples/hitdetection.html">hit detection</a>
@@ -315,13 +315,17 @@ var raster = new ol.source.Raster({
         <section>
           <!-- Eric -->
           <h2>Feature Editing</h2>
-          OpenLayers 3 provides various Feature Editing tools:
-          <div>
-            <p>Draw</p>
-            <p>Select</p>
-            <p>Modify</p>
-            <p>Snapping</p>
-          </div>
+          <p>
+            OpenLayers 3 provides various Feature Editing tools:
+            <ul>
+              <li>Draw point, line, polygon (and multi)</li>
+              <li>Draw circle (new in 3.4)
+              <li>Draw regular polygon (new in 3.6)</li>
+              <li>Modify, Translate (new in 3.9)</li>
+              <li>Maintain Topology</li>
+              <li>Snapping (new in 3.5)</li>
+            </ul>
+          </p>
           <p>
             <a class="squinty" href="examples/editing.html">feature editing</a>
           </p>
