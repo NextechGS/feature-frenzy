@@ -45,7 +45,7 @@ var vector = new ol.layer.Vector({
     var time = stats.minTime + deltaTime;
     if (time > stats.maxTime) {
       time = stats.maxTime;
-      stop();
+      reset();
     }
     var coord = line.getCoordinateAtM(time, true);
     var next = line.getCoordinateAtM(time + 30, true);
@@ -147,6 +147,11 @@ function resume() {
   originM += (Date.now() / 1000) - stopM;
   playing = true;
   source.changed();
+}
+
+function reset() {
+  stop();
+  stopM = null;
 }
 
 map.on('singleclick', function() {
