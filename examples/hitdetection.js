@@ -13,6 +13,11 @@ var vectorLayer = new ol.layer.Vector({
 
 var map = new ol.Map({
   target: 'map',
+  controls: ol.control.defaults({
+    attributionOptions: {
+      collapsible: false
+    }
+  }),
   layers: [rasterLayer, vectorLayer],
   view: new ol.View({
     center: [834774.7888102563, 5853936.254341479],
