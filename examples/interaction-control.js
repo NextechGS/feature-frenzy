@@ -20,8 +20,8 @@ var map = new ol.Map({
     })
   })],
   view: new ol.View({
-    center: [-9101767, 2822912],
-    zoom: 14
+    center: [15209134.14007123, 4380758.965080022],
+    zoom: 6
   })
 });
 
@@ -80,3 +80,21 @@ document.getElementById('marker').addEventListener('mousedown', function(e) {
   drawInteraction.setActive(true);
   e.preventDefault();
 });
+
+
+//
+// Keydown handling
+//
+document.onkeydown = function(e) {
+  var view = map.getView();
+  var rotation = view.getRotation();
+  if (e.keyCode == 82) {
+    // "r" key
+    rotation += 0.01;
+    view.setRotation(Math.min(rotation, 3.14159));
+  } else if (e.keyCode == 76) {
+    // "l" key
+    rotation -= 0.01;
+    view.setRotation(Math.max(rotation, -3.14159));
+  }
+};
