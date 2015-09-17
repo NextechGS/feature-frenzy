@@ -1,0 +1,13 @@
+extends _layouts/master
+
+block context
+  - var title = 'Vector tiles'
+
+block styles
+  link(rel="stylesheet", href="../bower_components/bootstrap/docs/assets/css/bootstrap.css", type="text/css")
+
+block ol
+  script(src='vectortile/ol.js')
+
+block scripts
+  script(src='vector-tiles.js')
