@@ -339,14 +339,15 @@ var source = new ol.source.Vector({
           <!-- Andreas -->
           <h2>Raster reprojection</h2>
           <pre class="fragment fade-in" ><code class="javascript" data-trim>
-var newProj = 'EPSG:4326';
-var oldProj = map.getView.getProjection();
-var center = map.getView().getCenter();
-map.setView({
-  projection: newProj,
-  center: ol.proj.transform(
-      center, oldProj, newProj),
-  zoom: map.getView().getZoom()
+// Web Mercator
+var source = new ol.source.OSM();
+          </code></pre>
+          <pre class="fragment fade-in" ><code class="javascript" data-trim>
+var view = new ol.View({
+  // Korea 2000
+  projection: 'EPSG:5179',
+  center: [14229000, 4398000],
+  zoom: 7
 });
         </code></pre>
         <div class="fragment fade-in">
