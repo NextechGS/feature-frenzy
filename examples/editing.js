@@ -7,8 +7,8 @@ var map = new ol.Map({
     })
   })],
   view: new ol.View({
-    center: [-9101767, 2822912],
-    zoom: 14
+    center: [-9777389, 5058721],
+    zoom: 16
   })
 });
 

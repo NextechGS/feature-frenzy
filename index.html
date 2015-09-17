@@ -210,7 +210,7 @@ layer.setStyle(new ol.style.Style({
           <pre><code class="javascript" data-trim>
 layer.setStyle(function(feature, resolution) {
   return [
-    new ol.style.({
+    new ol.style.Style({
       image: new ol.style.Icon({
         src: 'http://example.com/icon.png',
         scale: feature.get('magnitude') / 2

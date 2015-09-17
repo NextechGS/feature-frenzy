@@ -42,10 +42,12 @@ map.getViewport().addEventListener('mousemove', function(e) {
     return feature.get('name') || feature.get('description');
   });
   if (html) {
+    map.getViewport().style.cursor = 'pointer';
     overlay.setPosition(coord);
     overlay.getElement().innerHTML = html;
     div.parentNode.style.display = "block";
   } else {
+    map.getViewport().style.cursor = 'default';
     div.parentNode.style.display = "none";
   }
 });
