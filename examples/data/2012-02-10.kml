@@ -2,7 +2,7 @@
   <Document>
     <name>Skimap.org OpenSkiMap </name>
     <description>Created from OpenStreetMap data. Renderer v0.5</description>
-    <!-- 
+    <!--
 Copyright (c) OpenStreetMap Contributors
 http://www.openstreetmap.org/
 
@@ -30,7 +30,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <name>Parking</name>
         <Style id="style-Parking">
           <IconStyle>
-            <scale>0.2</scale>
+            <scale>0.07</scale>
             <Icon>
               <href>http://maps.google.com/mapfiles/kml/shapes/parking_lot.png</href>
             </Icon>
@@ -138,7 +138,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <name>Fuel</name>
         <Style id="style-Fuel">
           <IconStyle>
-            <scale>0.7</scale>
+            <scale>0.5</scale>
             <Icon>
               <href>http://maps.google.com/mapfiles/kml/pal2/icon21.png</href>
             </Icon>
@@ -168,7 +168,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <name>Cinema</name>
         <Style id="style-Cinema">
           <IconStyle>
-            <scale>0.7</scale>
+            <scale>0.5</scale>
             <Icon>
               <href>http://maps.google.com/mapfiles/kml/pal2/icon30.png</href>
             </Icon>
@@ -186,7 +186,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <name>Hotel</name>
         <Style id="style-Hotel">
           <IconStyle>
-            <scale>0.7</scale>
+            <scale>0.5</scale>
             <Icon>
               <href>http://maps.google.com/mapfiles/kml/pal2/icon28.png</href>
             </Icon>
@@ -323,7 +323,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <name>Restaurant</name>
         <Style id="style-Restaurant">
           <IconStyle>
-            <scale>0.7</scale>
+            <scale>0.5</scale>
             <Icon>
               <href>http://maps.google.com/mapfiles/kml/pal2/icon40.png</href>
             </Icon>
@@ -546,7 +546,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <name>Hospital</name>
         <Style id="style-Hospital">
           <IconStyle>
-            <scale>0.7</scale>
+            <scale>0.5</scale>
             <Icon>
               <href>http://maps.google.com/mapfiles/kml/pal3/icon38.png</href>
             </Icon>
@@ -557,7 +557,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <name>Toilet</name>
         <Style id="style-Toilet">
           <IconStyle>
-            <scale>0.7</scale>
+            <scale>0.5</scale>
             <Icon>
               <href>http://maps.google.com/mapfiles/kml/pal3/icon38.png</href>
             </Icon>
@@ -574,7 +574,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Easy">
             <LineStyle>
               <color>ff00ff00</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
           <Placemark id="w4380588">
@@ -927,7 +927,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Intermediate">
             <LineStyle>
               <color>ffff0000</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
           <Placemark id="w4380587">
@@ -1289,7 +1289,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Advanced">
             <LineStyle>
               <color>ff000000</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
           <Placemark id="w4389267">
@@ -1394,7 +1394,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Expert">
             <LineStyle>
               <color>ff0066ff</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
         </Folder>
@@ -1403,7 +1403,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Generic">
             <LineStyle>
               <color>ffff3cc1</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
           <Placemark id="w4816707">
@@ -1571,7 +1571,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Easy_Lit">
             <LineStyle>
               <color>#ff00ff00</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
         </Folder>
@@ -1580,7 +1580,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Intermediate_Lit">
             <LineStyle>
               <color>#ffff0000</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
         </Folder>
@@ -1589,7 +1589,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Advanced_Lit">
             <LineStyle>
               <color>#ff000000</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
         </Folder>
@@ -1598,7 +1598,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Expert_Lit">
             <LineStyle>
               <color>#ff0066ff</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
         </Folder>
@@ -1607,7 +1607,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Ski_Run_Downhill_Generic_Lit">
             <LineStyle>
               <color>#ffff3cc1</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
         </Folder>
@@ -1767,7 +1767,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <Style id="style-Ski_Lift_Chairlift">
           <LineStyle>
             <color>#ff0e10b4</color>
-            <width>6</width>
+            <width>4</width>
           </LineStyle>
         </Style>
         <Placemark id="w4380585">
@@ -1865,7 +1865,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <Style id="style-Ski_Lift_Gondola">
           <LineStyle>
             <color>#ff0e10b4</color>
-            <width>8</width>
+            <width>4</width>
           </LineStyle>
         </Style>
         <Placemark id="w4380591">
@@ -1903,8 +1903,8 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <name>Ski_Lift_Cable_Car</name>
         <Style id="style-Ski_Lift_Cable_Car">
           <LineStyle>
-            <color>#ff0e10b4</color>
-            <width>10</width>
+            <color>#cc0e10b4</color>
+            <width>4</width>
           </LineStyle>
         </Style>
         <Placemark id="w4389264">
@@ -5959,7 +5959,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
         <Style id="style-Railway_Rail_Casing">
           <LineStyle>
             <color>#80ffffff</color>
-            <width>6</width>
+            <width>4</width>
           </LineStyle>
         </Style>
       </Folder>
@@ -6012,7 +6012,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Motorway">
             <LineStyle>
               <color>#ffbf3333</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
         </Folder>
@@ -6030,7 +6030,7 @@ http://creativecommons.org/licenses/by-sa/2.0/
           <Style id="style-Trunk">
             <LineStyle>
               <color>#ff17cfea</color>
-              <width>6</width>
+              <width>4</width>
             </LineStyle>
           </Style>
         </Folder>

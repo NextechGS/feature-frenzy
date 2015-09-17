@@ -1,6 +1,7 @@
 var rasterLayer = new ol.layer.Tile({
-  source: new ol.source.MapQuest({
-    layer: 'osm'
+  source: new ol.source.XYZ({
+    url: 'https://{a-d}.tiles.mapbox.com/v4/tschaub.nfak88cd/{z}/{x}/{y}.png?' +
+        'access_token=pk.eyJ1IjoidHNjaGF1YiIsImEiOiI2TndKSnNjIn0.3Sc9yGKMUweACk0iG6HUbg'
   })
 });
 
@@ -21,7 +22,7 @@ var map = new ol.Map({
   layers: [rasterLayer, vectorLayer],
   view: new ol.View({
     center: [834774.7888102563, 5853936.254341479],
-    zoom: 12
+    zoom: 13
   })
 });
 
