@@ -4,6 +4,11 @@ ol.proj.get('ESRI:54009').setExtent([-18e6, -9e6, 18e6, 9e6]);
 
 var map = new ol.Map({
   target: 'map',
+  controls: ol.control.defaults({
+    attributionOptions: {
+      collapsible: false
+    }
+  }),
   layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM({
