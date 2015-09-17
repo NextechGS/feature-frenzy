@@ -4,7 +4,7 @@ block context
   - var title = 'Interactions and Controls';
 
 block styles
-  link(rel='stylesheet', href='font-awesome.min.css')
+  link(rel="stylesheet", href="../bower_components/font-awesome/css/font-awesome.css", type="text/css")
   style.
     .ol-scale-line-inner {
       font-size: 12px;
@@ -23,9 +23,9 @@ block styles
 
 block extra
   div(id="locate", class="ol-unselectable", class="ol-control")
-    button(type="button", class="fa", class="fa-location-arrow")
+    button(type="button", class="fa fa-location-arrow")
   div(id="marker", class="ol-unselectable", class="ol-control")
-    button(type="button", class="fa", class="fa-map-marker")
+    button(type="button", class="fa fa-map-marker")
 
 block scripts
   script(src="../bower_components/angular/angular.min.js")
