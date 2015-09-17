@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>OpenLayers Feature Frenzy</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="theme/show.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+      .reveal h1.beefy {
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 10px 10px 6px rgba(0, 0, 0, 0.2);
+      }
+      .reveal ul.plain {
+        list-style-type: none;
+      }
+      .reveal h2 > img {
+        vertical-align: sub;
+      }
+      .reveal pre {
+        font-size: 0.85em;
+      }
+      .reveal section img.boundless {
+        margin-bottom: -4em;
+        width: 30%;
+      }
+      .reveal section img.inline-icon {
+        margin: 0 0 -10px 0;
+        vertical-align: text-bottom;
+      }
+      .reveal a.squinty {
+        font-size: 80%;
+      }
+      .smaller {
+        font-size: smaller !important;
+      }
+      .reveal p {
+        margin: 1em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="#FDCC32">
+          <h1 class="beefy">OpenLayers</h1>
+          <h3>Feature Frenzy</h3>
+        </section>
+        <section>
+          <h3>tim@planet.com</h3>
+          <h3>ahocevar@boundlessgeo.com</h3>
+          <h3>eric.lemoine@camptocamp.com</h3>
+        </section>
+        <section>
+          <img src="img/ol-logo.png">
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>Tile Sources</h2>
+          <pre><code class="javascript" data-trim>
+var map = new ol.Map({layers: [
+  new ol.layer.Tile({
+    source: new ol.source.OSM()
+  })
+]});
+          </code></pre>
+          <div class="fragment fade-in">
+            <p>
+              Render tiles using XYZ, TileJSON, WMTS, MapQuest, Bing Maps, ArcGIS (new in 3.3), and more.
+            </p>
+            <p>
+              Support for non-square tiles (3.5).  Monitor tile load events (3.3).  Use a prioritized tile queue, configure tile loading priority.
+            </p>
+            <p>
+              <a class="squinty" href="./examples/tiles-galore.html">tiles galore</a>
+            </p>
+          </div>
+          <!--
+            [PRESENTER NOTES]
+          -->
+        </section>
+
+        <section>
+          <!-- Eric -->
+          <h2>Interactions</h2>
+          <p>Define how users interact with the map.</p>
+          <p>Default interactions include:
+            <ul>
+              <li>Double click zoom</li>
+              <li>Drag pan</li>
+              <li>Drag rotate</li>
+              <li>Pinch rotate</li>
+              <li>Pinch zoom</li>
+              <li>Mousewheel zoom</li>
+            </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>Controls</h2>
+          <p><strong>Controls</strong> are visual components related to the map.</p>
+          <p>Default controls:
+            <ul>
+                <li>Zoom</li>
+                <li>Rotate</li>
+                <li>Attribution</li>
+            </ul>
+          </p>
+          <p>
+            <a class="squinty" href="examples/interaction-control.html">interaction and control</a>
+          </p>
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>Vector formats</h2>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
+new ol.source.Vector({
+  format: new ol.format.GeoJSON(),
+  url: 'http://example.net/my.geojson'
+});
+          </code></pre>
+          <div class="fragment fade-in">
+            <p>KML, GeoJSON, TopoJSON, WKT, GPX, GML&nbsp;2&nbsp;&amp;&nbsp;3, WFS&nbsp;1.1, OSMXML, ICG, Polyline,
+              EsriJSON (new in 3.5)</p>
+            <p>Transform while parsing</p>
+          </div>
+
+          <!--
+            Popular formats like KML or GeoJSON
+            Less frequently used formats like GML or OSMXML
+            New EsriJSON format
+
+            Features are transformed to the view projection while parsing
+
+            Either create source with url, or define a loader using tile or bbox
+            strategies.
+          -->
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>Vector rendering</h2>
+          <div class="fragment fade-in">
+            <p>Geometry simplification</p>
+            <p>Replay (maintain stroke, symbol size, and fonts)</p>
+            <p>World wrapped rendering (new in 3.5)</p>
+            <p>
+              <a class="squinty" href="./examples/vector-rendering.html">
+                vector rendering
+              </a>
+            </p>
+        </div>
+
+          <!--
+            Performance is achieved by simplifying geometries to pixel
+            resolutions. For polygons, the topology is preserved. Feature
+            geometries are translated into a replay structure, for efficient
+            re-rendering during animations and user interaction.
+
+            Vector rendering now also supports world wrapping.
+          -->
+        </section>
+
+        <section>
+          <!-- Eric -->
+          <h2>Feature Interaction</h2>
+          <p>Pixel-based Object Detection</p>
+          <ul>
+              <li>Feature hit detection</li>
+              <li>UTFGrid support (new in 3.1)</li>
+              <li>Color detection on raster and vector layers (new in 3.2)</li>
+          </ul>
+          <p>
+            <a class="squinty" href="examples/hitdetection.html">hit detection</a>
+          </p>
+        </section>
+
+        <section>
+          <!-- Tim -->
+          <h2>Styled Features (I)</h2>
+          <pre><code class="javascript" data-trim>
+layer.setStyle(new ol.style.Style({
+  fill: new ol.style.Fill({
+    color: 'rgba(255, 255, 255, 0.3)'
+  }),
+  stroke: new ol.style.Stroke({
+    color: '#319FD3'
+  })
+}));
+          </code></pre>
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>Styled Features (II)</h2>
+          <pre><code class="javascript" data-trim>
+layer.setStyle(function(feature, resolution) {
+  return [
+    new ol.style.Style({
+      image: new ol.style.Icon({
+        src: 'http://example.com/icon.png',
+        scale: feature.get('magnitude') / 2
+      })
+    })
+  ];
+});
+          </code></pre>
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>Styled Features (III)</h2>
+          <pre><code class="javascript" data-trim>
+layer.setStyle(new ol.style.Style({
+  image: new ol.style.Circle({
+    radius: 5,
+    fill: new ol.style.Fill({color: 'orange'})
+  }),
+  geometry: function(feature) {
+    var coordinates = feature.getGeometry()
+        .getCoordinates()[0];
+    return new ol.geom.MultiPoint(coordinates);
+  }
+});
+          </code></pre>
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>but wait, there's more!</h2>
+        </section>
+        <section>
+          <!-- Tim -->
+          <h2>Immediate Rendering</h2>
+          <pre><code class="javascript" data-trim>
+map.on('postcompose', function(event) {
+  var context = event.vectorContext;
+  context.setImageStyle(imageStyle);
+  context.drawPointGeometry(point);
+});
+          </code></pre>
+          <p>
+            <a class="squinty" href="./examples/bike-track.html">bike track</a>
+          </p>
+        </section>
+
+        <section>
+          <!-- Tim -->
+          <h2>Raster Operations</h2>
+          <pre><code class="javascript" data-trim>
+var raster = new ol.source.Raster({
+  sources: [imagery, landcover],
+  operation: function(pixels, data) {
+    // here you can run operations
+    // on the input pixels and
+    // return new pixel values
+  }
+});
+          </code></pre>
+          <p>
+            <a class="squinty" href="./examples/flood-fill.html">flood fill</a>
+          </p>
+        </section>
+
+        <section>
+          <!-- Eric -->
+          <h2>Feature Editing</h2>
+          <p>
+            OpenLayers 3 provides various Feature Editing tools:
+            <ul>
+              <li>Draw point, line, polygon (and multi)</li>
+              <li>Draw circle (new in 3.4)
+              <li>Draw regular polygon (new in 3.6)</li>
+              <li>Modify, Translate (new in 3.9)</li>
+              <li>Maintain Topology</li>
+              <li>Snapping (new in 3.5)</li>
+            </ul>
+          </p>
+          <p>
+            <a class="squinty" href="examples/editing.html">feature editing</a>
+          </p>
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>API refinements (I)</h2>
+        <div class="fragment fade-in">
+          <p>Simpler vector sources (3.5)</p>
+          <p>Removal of two way binding (3.5)</p>
+          <p>Removal of feature overlay (3.7)</p>
+        </div>
+          <!--
+            Simpler vector sources means: only one vector source, easy configure
+            with url and format or with a custom loader. No need to provide the
+            view projection any more.
+          -->
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>API refinements (II)</h2>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
+var source = new ol.source.GeoJSON({
+  url: 'data/vectors.geojson',
+  projection: 'EPSG:3857' // Why not EPSG:4326?
+});
+          </code></pre>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
+var source = new ol.source.Vector({
+  format: new ol.format.GeoJSON(),
+  url: 'data/vectors.geojson'
+});
+        </code></pre>
+          <!--
+            Simpler vector sources means: only one vector source, easy configure
+            with url and format or with a custom loader. No need to provide the
+            view projection any more.
+          -->
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>Upcoming features</h2>
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>Raster reprojection</h2>
+          <pre class="fragment fade-in" ><code class="javascript" data-trim>
+// Web Mercator
+var source = new ol.source.OSM();
+          </code></pre>
+          <pre class="fragment fade-in" ><code class="javascript" data-trim>
+var view = new ol.View({
+  // Korea 2000
+  projection: 'EPSG:5179',
+  center: [14229000, 4398000],
+  zoom: 7
+});
+        </code></pre>
+        <div class="fragment fade-in">
+          <p>Funded by a Boundless client, implemented by <a href="http://klokantech.com/">Klokan&nbsp;Technologies</a></p>
+          <p>
+            <a class="squinty" href="./examples/raster-reprojection.html">
+              raster reprojection
+            </a>
+          </p>
+        </div>
+          <!--
+            Source in any known projection
+            View in a different projection
+            Reprojection using affine transforms of two triangles
+          -->
+        </section>
+
+        <section>
+          <!-- Andreas -->
+          <h2>Vector tiles</h2>
+          <pre class="fragment fade-in"><code class="javascript" data-trim>
+var url = 'tileservice/{z}/{x}/{y}.pbf';
+var layer = new ol.layer.VectorTile({
+  source: new ol.source.VectorTile({
+    format: new ol.format.MVT(),
+    tileGrid: ol.tilegrid.createXYZ(),
+    tilePixelRatio: 16,
+    tileUrlFunction: function(tileCoord) {
+      return xyz(url, tileCoord);
+    }
+  })
+});
+          </code></pre>
+          <div class="fragment fade-in">
+            <p>Funded by Boundless clients</p>
+            <p>
+              <a class="squinty" href="./examples/vector-tiles.html">
+                vector tiles
+              </a>
+            </p>
+          </div>
+          <!--
+            Introduces a new vector tile renderer and a
+            Mapbox Vector Tile format parser. Can also render tiles in any
+            supported vector format. GeoServer support for Mapbox vector tiles
+            is also upcoming.
+          -->
+        </section>
+
+        <section>
+          <div>
+            <img src="img/builder.png" style="width: 80%">
+          </div>
+          <a class="squinty" href="http://localhost:3000/">
+            custom builds
+          </a>
+        </section>
+
+        <section data-background="#FDCC32">
+          <h1>Thanks!</h1>
+          <br>
+          <p>
+            <a href="http://openlayers.org/">
+              http://openlayers.org/
+            </a>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <!-- reveal.js loading and configuration -->
+    <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script src="bower_components/reveal.js/js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        rollingLinks: false,
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [{
+          src: 'bower_components/reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        }, {
+          src: 'bower_components/reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        }]
+      });
+
+    </script>
+  </body>
+</html>
