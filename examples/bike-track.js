@@ -1,8 +1,5 @@
 var raster = new ol.layer.Tile({
-  source: new ol.source.BingMaps({
-    imagerySet: 'Aerial',
-    key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3'
-  })
+  source: new ol.source.OSM()
 });
 
 var style = new ol.style.Style({
